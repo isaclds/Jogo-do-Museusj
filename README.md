@@ -16,6 +16,10 @@ Agora acesse essa porta digitando isso na barra de pesquisa do seu Browser
 
 [Créditos](https://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python)
 
+### Por que usar Vite Template?
+
+É a combinação mais moderna, eficiente e fácil para iniciar o projeto. A escolha dele se deve ao fato de ter uma configuração zero para começar a otimização na produção e que a velocidade do vite é incrivelmente rápida, o que facilitará os testes durante o desenvolvimento.
+
 # Phaser Vite Template
 
 This is a Phaser 3 project template that uses Vite for bundling. It supports hot-reloading for quick development workflow and includes scripts to generate production-ready builds.

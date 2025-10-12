@@ -6,9 +6,17 @@ export class MainMenu extends Scene {
   }
 
   create() {
-    this.add.image(512, 384, "background");
+    this.add.image(
+      this.cameras.main.centerX,
+      this.cameras.main.centerY,
+      "background"
+    );
 
-    this.add.image(512, 300, "logo");
+    this.add.image(
+      this.cameras.main.centerX,
+      this.cameras.main.centerY,
+      "logo"
+    );
 
     this.add
       .text(512, 460, "Menu", {
@@ -22,7 +30,7 @@ export class MainMenu extends Scene {
       .setOrigin(0.5);
 
     this.input.once("pointerdown", () => {
-      this.scene.start("Game");
+      this.scene.start("GameSalaInicial");
     });
   }
 }

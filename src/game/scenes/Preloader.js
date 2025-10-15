@@ -23,7 +23,7 @@ export class Preloader extends Scene {
   }
 
   preload() {
-    this.load.image("logo", "/assets/logo.png");
+    this.load.image("logo", "/assets/logo.jpg");
     this.load.image("sala1", "/assets/TemplateSalaJogo.png");
     this.load.spritesheet(
       "character",

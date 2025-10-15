@@ -6,17 +6,9 @@ export class MainMenu extends Scene {
   }
 
   create() {
-    this.add.image(
-      this.cameras.main.centerX,
-      this.cameras.main.centerY,
-      "background"
-    );
-
-    this.add.image(
-      this.cameras.main.centerX,
-      this.cameras.main.centerY,
-      "logo"
-    );
+    this.add
+      .image(this.cameras.main.centerX, this.cameras.main.centerY, "logo")
+      .setDisplaySize(this.cameras.main.width, this.cameras.main.height);
 
     this.add
       .text(512, 460, "Menu", {

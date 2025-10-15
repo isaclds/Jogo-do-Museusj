@@ -13,6 +13,13 @@ const config = {
   height: 228,
   parent: "game-container",
   backgroundColor: "#000000",
+  physics: {
+    default: "arcade",
+    arcade: {
+      gravity: { y: 0 },
+      debug: true,
+    },
+  },
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,

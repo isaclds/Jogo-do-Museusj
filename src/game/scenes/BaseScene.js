@@ -6,7 +6,6 @@ export class BaseScene extends Scene {
     this.characterSpeed = speed;
     this.cursors = this.input.keyboard.createCursorKeys();
 
-    // Configurações básicas do personagem
     this.character.setCollideWorldBounds(true);
     this.character.setScale(0.5);
   }
@@ -14,17 +13,14 @@ export class BaseScene extends Scene {
   updateMovement() {
     if (!this.cursors || !this.character) return;
 
-    // Reset velocity
     this.character.setVelocity(0);
 
-    // Horizontal movement
     if (this.cursors.left.isDown) {
       this.character.setVelocityX(-this.characterSpeed);
     } else if (this.cursors.right.isDown) {
       this.character.setVelocityX(this.characterSpeed);
     }
 
-    // Vertical movement
     if (this.cursors.up.isDown) {
       this.character.setVelocityY(-this.characterSpeed);
     } else if (this.cursors.down.isDown) {
@@ -32,19 +28,18 @@ export class BaseScene extends Scene {
     }
   }
 
-  // Método utilitário para criar portas
-  createDoor(x, y, width = 15, height = 30, targetScene, callback = null) {
+  createDoor(x, y, width, height, targetScene, spawnX, spawnY, doorId = null) {
     const door = this.physics.add.staticBody(x, y, width, height);
 
+    //Porta baixo +13x e +35y
+    // Porta lateral para direita +35x e +13y n testei
+    // Porta lateral para esquerda -20x e +13y n testei
+    //Porta cima +14x e -22y
     this.physics.add.overlap(
       this.character,
       door,
       () => {
-        if (callback) {
-          callback();
-        } else {
-          this.useDoor(targetScene);
-        }
+        this.useDoor(targetScene, spawnX, spawnY, doorId);
       },
       null,
       this
@@ -53,9 +48,29 @@ export class BaseScene extends Scene {
     return door;
   }
 
-  useDoor(targetScene) {
-    this.registry.set("playerPosition", targetScene);
+  useDoor(targetScene, spawnX, spawnY, doorId = null) {
+    // Salva a posição de spawn para a próxima sala
+    this.registry.set("playerSpawn", {
+      x: spawnX,
+      y: spawnY,
+      doorId: doorId,
+    });
+
     this.scene.start(targetScene);
+  }
+
+  // Método para posicionar o jogador baseado no registry
+  setupPlayerPosition(defaultX, defaultY) {
+    const spawnData = this.registry.get("playerSpawn");
+
+    if (spawnData && spawnData.x && spawnData.y) {
+      this.character.setPosition(spawnData.x, spawnData.y);
+      // Limpa os dados de spawn após usar
+      this.registry.set("playerSpawn", null);
+    } else {
+      // Posição padrão se não houver dados de spawn
+      this.character.setPosition(defaultX, defaultY);
+    }
   }
 
   // Método utilitário para criar objetos interativos

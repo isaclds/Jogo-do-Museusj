@@ -15,13 +15,29 @@ export class GameCorredor extends BaseScene {
 
     this.character = this.physics.add.sprite(100, 300, "character");
     this.setupMovement(this.character, 160);
+    this.setupPlayerPosition(100, 300);
 
     //Portas laterais
-    this.createDoor(30, 115, 15, 30, "GameMaterial");
+    this.createDoor(
+      30,
+      115,
+      15,
+      30,
+      "GameMaterial",
+      260,
+      144,
+      "portaLateralEsquerda"
+    );
     //Portas de cima
-    this.createDoor(99, 80, 30, 15, "GameIndigena");
+    this.createDoor(
+      99,
+      80,
+      30,
+      15,
+      "GameIndigena",
+    );
     //Direcionar para a sala das xicaras
-    this.createDoor(194, 80, 30, 15, "GameSalaInicial");
+    // this.createDoor(194, 80, 30, 15, "GameSalaInicial");
   }
 
   update() {

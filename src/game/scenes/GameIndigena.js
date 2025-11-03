@@ -13,7 +13,7 @@ export class GameIndigena extends BaseScene {
       "sala_indigena"
     );
 
-    this.character = this.physics.add.sprite(100, 300, "character");
+    this.character = this.physics.add.sprite(161, 184, "character");
     this.setupMovement(this.character, 160);
 
     const bancos = [
@@ -27,7 +27,18 @@ export class GameIndigena extends BaseScene {
       this.createCollisionObjects(bancos)
     );
 
-    this.createDoor(146, 202, 30, 15, "GameCorredor");
+    this.createDoor(
+      146,
+      202,
+      30,
+      15,
+      "GameCorredor",
+      // 99,
+      // 80,
+      113,
+      115,
+      "porta"
+    );
 
     // Objetos interativos específicos desta sala
     // this.artefato1 = this.createInteractiveObject(100, 120, 20, 20, () => {

@@ -22,6 +22,7 @@ export class GameSalaInicial extends BaseScene {
 
     // Configura movimento usando a classe base
     this.setupMovement(this.character, 160);
+    this.setupPlayerPosition(161, 220);
 
     // Hitboxes - mesas e obstáculos
     const mesas = [
@@ -40,9 +41,29 @@ export class GameSalaInicial extends BaseScene {
 
     this.createDoor(280, 195, 15, 30, "GameCorredor");
 
-    this.createDoor(66, 250, 30, 15, "GameMaterial");
-
-    this.createDoor(226, 250, 30, 15, "GameMaterial");
+    // Portas de baixo
+    // this.createDoor(67, 60, 29, 15, "GameSalaInicial");
+    // this.createDoor(210, 60, 29, 15, "GameSalaInicial");
+    this.createDoor(
+      66,
+      250,
+      30,
+      15,
+      "GameMaterial",
+      80,
+      95,
+      "portaBaixoEsquerda"
+    );
+    this.createDoor(
+      226,
+      250,
+      30,
+      15,
+      "GameMaterial",
+      223,
+      95,
+      "portaBaixoDireita"
+    );
 
     // Input para teste
     this.input.once("pointerdown", () => {

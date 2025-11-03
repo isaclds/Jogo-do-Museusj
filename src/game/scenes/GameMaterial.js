@@ -15,12 +15,43 @@ export class GameMaterial extends BaseScene {
 
     this.character = this.physics.add.sprite(100, 300, "character");
 
+    this.setupPlayerPosition(100, 300);
+
     this.setupMovement(this.character, 160);
 
-    this.createDoor(67, 60, 29, 15, "GameSalaInicial");
-    this.createDoor(210, 60, 29, 15, "GameSalaInicial");
+    // 66,
+    //   250,
+    this.createDoor(
+      67,
+      60,
+      29,
+      15,
+      "GameSalaInicial",
+      80,
+      228,
+      "portaCimaEsquerda"
+    );
+    this.createDoor(
+      210,
+      60,
+      29,
+      15,
+      "GameSalaInicial",
+      240,
+      228,
+      "portaCimaDireita"
+    );
 
-    this.createDoor(280, 131, 15, 30, "GameCorredor");
+    this.createDoor(
+      280,
+      131,
+      15,
+      30,
+      "GameCorredor",
+      65,
+      128,
+      "portaLateralDireita"
+    );
   }
 
   update() {

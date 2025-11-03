@@ -1,14 +1,12 @@
-import { Scene } from "phaser";
+import { BaseScene } from "./BaseScene";
 
-export class GameSalaInicial extends Scene {
+export class GameSalaInicial extends BaseScene {
   constructor() {
     super("GameSalaInicial");
   }
 
-  init() {}
-
   create() {
-    this.physics.world.setBounds(45, 32, 232, 192);
+    this.physics.world.setBounds(30, 65, 265, 192);
 
     this.add.image(
       this.cameras.main.centerX,
@@ -16,54 +14,39 @@ export class GameSalaInicial extends Scene {
       "sala1"
     );
 
-    //Hitboxes
-    this.desk1 = this.physics.add.staticBody(82, 96, 15, 50);
-    this.desk2 = this.physics.add.staticBody(226, 96, 15, 50);
-    this.desk3 = this.physics.add.staticBody(115, 81, 92, 16);
-
     this.character = this.physics.add.sprite(
       100, // x position
       300, // y position
-      "character" // texture key (make sure this matches what you loaded in preloader)
+      "character"
     );
 
-    // Set character properties (optional)
-    this.character.setCollideWorldBounds(true); // Keep character within game bounds
+    // Configura movimento usando a classe base
+    this.setupMovement(this.character, 160);
 
-    this.character.setScale(0.5); // Adjust size if needed
+    // Hitboxes - mesas e obstáculos
+    const mesas = [
+      { x: 66, y: 130, width: 15, height: 48 },
+      { x: 275, y: 130, width: 15, height: 45 },
+      { x: 130, y: 98, width: 60, height: 16 },
+      { x: 0, y: 98, width: 47, height: 16 },
+      { x: 210, y: 82, width: 30, height: 16 },
+    ];
 
-    // Add cursor keys for movement (optional)
-    this.cursors = this.input.keyboard.createCursorKeys();
+    // Cria colisões usando método da base
+    const colisao = this.createCollisionObjects(mesas);
+    this.physics.add.collider(this.character, colisao);
 
-    this.physics.add.collider(this.character, [
-      this.desk1,
-      this.desk2,
-      this.desk3,
-    ]);
+    // Cria porta usando método da base (substitui a porta manual)
+    this.createDoor(270, 100, 15, 30, "GameOver");
 
+    // Input para teste (opcional - pode remover se não for necessário)
     this.input.once("pointerdown", () => {
       this.scene.start("GameOver");
     });
   }
 
   update() {
-    // Handle character movement (optional)
-    if (this.cursors) {
-      if (this.cursors.left.isDown) {
-        this.character.setVelocityX(-160);
-      } else if (this.cursors.right.isDown) {
-        this.character.setVelocityX(160);
-      } else {
-        this.character.setVelocityX(0);
-      }
-
-      if (this.cursors.up.isDown) {
-        this.character.setVelocityY(-160);
-      } else if (this.cursors.down.isDown) {
-        this.character.setVelocityY(160);
-      } else {
-        this.character.setVelocityY(0);
-      }
-    }
+    // Atualiza movimento usando método da classe base
+    this.updateMovement();
   }
 }

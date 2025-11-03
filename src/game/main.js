@@ -10,7 +10,7 @@ import { AUTO, Game, Physics } from "phaser";
 const config = {
   type: AUTO,
   width: 322,
-  height: 228,
+  height: 260,
   parent: "game-container",
   backgroundColor: "#000000",
   physics: {

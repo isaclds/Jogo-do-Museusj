@@ -1,8 +1,8 @@
 import { BaseScene } from "./BaseScene.js";
 
-export class GameSalaIndigena extends BaseScene {
+export class GameIndigena extends BaseScene {
   constructor() {
-    super("GameSalaIndigena");
+    super("GameIndigena");
   }
 
   create() {
@@ -19,9 +19,9 @@ export class GameSalaIndigena extends BaseScene {
     this.createDoor(50, 100, 15, 30, "GameCorredor");
 
     // Objetos interativos específicos desta sala
-    this.artefato1 = this.createInteractiveObject(100, 120, 20, 20, () => {
-      console.log("Interagiu com Artefato 1");
-    });
+    // this.artefato1 = this.createInteractiveObject(100, 120, 20, 20, () => {
+    //   console.log("Interagiu com Artefato 1");
+    // });
   }
 
   createInteractiveObject(x, y, width, height, callback) {

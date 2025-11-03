@@ -11,12 +11,12 @@ export class GameSalaInicial extends BaseScene {
     this.add.image(
       this.cameras.main.centerX,
       this.cameras.main.centerY,
-      "sala1"
+      "sala_principal"
     );
 
     this.character = this.physics.add.sprite(
-      100, // x position
-      300, // y position
+      161, // x position
+      220, // y position
       "character"
     );
 
@@ -36,17 +36,21 @@ export class GameSalaInicial extends BaseScene {
     const colisao = this.createCollisionObjects(mesas);
     this.physics.add.collider(this.character, colisao);
 
-    // Cria porta usando método da base (substitui a porta manual)
-    this.createDoor(270, 100, 15, 30, "GameOver");
+    this.createDoor(280, 100, 15, 30, "GameOver");
 
-    // Input para teste (opcional - pode remover se não for necessário)
+    this.createDoor(280, 195, 15, 30, "GameCorredor");
+
+    this.createDoor(66, 250, 30, 15, "GameMaterial");
+
+    this.createDoor(226, 250, 30, 15, "GameMaterial");
+
+    // Input para teste
     this.input.once("pointerdown", () => {
       this.scene.start("GameOver");
     });
   }
 
   update() {
-    // Atualiza movimento usando método da classe base
     this.updateMovement();
   }
 }

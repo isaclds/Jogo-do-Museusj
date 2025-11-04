@@ -27,18 +27,7 @@ export class GameIndigena extends BaseScene {
       this.createCollisionObjects(bancos)
     );
 
-    this.createDoor(
-      146,
-      202,
-      30,
-      15,
-      "GameCorredor",
-      // 99,
-      // 80,
-      113,
-      115,
-      "porta"
-    );
+    this.createDoor(146, 202, 30, 15, "GameCorredor", 113, 115, "porta");
 
     // Objetos interativos específicos desta sala
     // this.artefato1 = this.createInteractiveObject(100, 120, 20, 20, () => {

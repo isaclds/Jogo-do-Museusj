@@ -28,6 +28,9 @@ export class Preloader extends Scene {
     this.load.image("sala_indigena", "/assets/TemplateSalaPatIndigenaJogo.png");
     this.load.image("sala_material", "/assets/TemplateSalaPatMaterialJogo.png");
     this.load.image("corredor", "/assets/TemplateSalaCorredorJogo.png");
+    this.load.image("sala_carroca", "/assets/TemplateSalaCarrocaJogo.png");
+    this.load.image("sala_chas", "/assets/TemplateSalaChasJogo.png");
+    this.load.image("sala_cinema", "/assets/TemplateSalaCinemaJogo.png");
     this.load.spritesheet(
       "character",
       "/assets/personagens/Download43242.png",

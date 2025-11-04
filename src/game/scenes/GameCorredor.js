@@ -29,15 +29,8 @@ export class GameCorredor extends BaseScene {
       "portaLateralEsquerda"
     );
     //Portas de cima
-    this.createDoor(
-      99,
-      80,
-      30,
-      15,
-      "GameIndigena",
-    );
-    //Direcionar para a sala das xicaras
-    // this.createDoor(194, 80, 30, 15, "GameSalaInicial");
+    this.createDoor(99, 80, 30, 15, "GameIndigena");
+    this.createDoor(194, 80, 30, 15, "GameChas", 161, 184, "PortaCimaDireita");
   }
 
   update() {

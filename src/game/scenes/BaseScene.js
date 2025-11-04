@@ -32,8 +32,8 @@ export class BaseScene extends Scene {
     const door = this.physics.add.staticBody(x, y, width, height);
 
     //Porta baixo +13x e +35y
-    // Porta lateral para direita +35x e +13y n testei
-    // Porta lateral para esquerda -20x e +13y n testei
+    // Porta lateral para direita +35x e +13y
+    // Porta lateral para esquerda -20x e +13y
     //Porta cima +14x e -22y
     this.physics.add.overlap(
       this.character,

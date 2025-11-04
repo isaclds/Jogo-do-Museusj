@@ -42,8 +42,6 @@ export class GameSalaInicial extends BaseScene {
     this.createDoor(280, 195, 15, 30, "GameCorredor");
 
     // Portas de baixo
-    // this.createDoor(67, 60, 29, 15, "GameSalaInicial");
-    // this.createDoor(210, 60, 29, 15, "GameSalaInicial");
     this.createDoor(
       66,
       250,

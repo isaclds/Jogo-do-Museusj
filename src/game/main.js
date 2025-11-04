@@ -6,6 +6,9 @@ import { Preloader } from "./scenes/Preloader";
 import { GameMaterial } from "./scenes/GameMaterial.js";
 import { GameCorredor } from "./scenes/GameCorredor.js";
 import { GameIndigena } from "./scenes/GameIndigena.js";
+import { GameCarroca } from "./scenes/GameCarroca.js";
+import { GameChas } from "./scenes/GameChas.js";
+import { GameCinema } from "./scenes/GameCinema.js";
 import { AUTO, Game, Physics } from "phaser";
 
 const config = {
@@ -33,6 +36,9 @@ const config = {
     GameMaterial,
     GameCorredor,
     GameIndigena,
+    GameCarroca,
+    GameChas,
+    GameCinema,
     GameOver,
   ],
 };

@@ -23,7 +23,7 @@ export class MainMenu extends Scene {
 
     this.input.once("pointerdown", () => {
       //Alterar dnv
-      this.scene.start("GameCarroca");
+      this.scene.start("GameSalaInicial");
     });
   }
 }

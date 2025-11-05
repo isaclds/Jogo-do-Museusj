@@ -17,16 +17,7 @@ export class GameMaterial extends BaseScene {
     this.setupPlayerPosition(100, 300);
     this.setupMovement(this.character, 160);
 
-    this.createDoor(
-      67,
-      60,
-      29,
-      15,
-      "GameSalaInicial",
-      80,
-      228,
-      "portaCimaEsquerda"
-    );
+    this.createDoor(67, 60, 29, 15, "GameSalaInicial", 80, 228, "CimaEsquerda");
     this.createDoor(
       210,
       60,
@@ -35,7 +26,7 @@ export class GameMaterial extends BaseScene {
       "GameSalaInicial",
       240,
       228,
-      "portaCimaDireita"
+      "CimaDireita"
     );
 
     this.createDoor(
@@ -46,8 +37,21 @@ export class GameMaterial extends BaseScene {
       "GameCorredor",
       65,
       128,
-      "portaLateralDireita"
+      "LateralDireita"
     );
+
+    const colisao = this.createCollisionObjects([
+      { x: 30, y: 97, width: 36, height: 34 },
+      { x: 30, y: 160, width: 36, height: 34 },
+      { x: 30, y: 242, width: 265, height: 15 },
+      { x: 112, y: 70, width: 80, height: 12 },
+      { x: 243, y: 225, width: 28, height: 16 },
+      { x: 82, y: 225, width: 45, height: 16 },
+      { x: 273, y: 80, width: 15, height: 48 },
+      { x: 273, y: 165, width: 15, height: 48 },
+    ]);
+
+    this.physics.add.collider(this.character, colisao);
   }
 
   update() {

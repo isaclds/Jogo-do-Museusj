@@ -19,6 +19,13 @@ export class GameCarroca extends BaseScene {
 
     this.createDoor(25, 100, 15, 30, "GameCinema", 263, 225, "EsquerdaCima");
     this.createDoor(25, 195, 15, 30, "GameChas", 210, 120, "PortaBaixo");
+
+    const colisao = this.createCollisionObjects([
+      { x: 128, y: 98, width: 64, height: 80 },
+      { x: 131, y: 195, width: 60, height: 30 },
+      { x: 33, y: 145, width: 15, height: 33 },
+    ]);
+    this.physics.add.collider(this.character, colisao);
   }
 
   update() {

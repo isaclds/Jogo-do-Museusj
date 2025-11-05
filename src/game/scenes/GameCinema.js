@@ -39,6 +39,17 @@ export class GameCinema extends BaseScene {
       113,
       "EsquerdaCima"
     );
+
+    const colisao = this.createCollisionObjects([
+      { x: 60, y: 65, width: 220, height: 18 },
+      { x: 66, y: 114, width: 30, height: 45 },
+      { x: 130, y: 114, width: 30, height: 45 },
+      { x: 195, y: 114, width: 30, height: 45 },
+      { x: 273, y: 145, width: 15, height: 33 },
+      { x: 180, y: 195, width: 110, height: 15 },
+    ]);
+
+    this.physics.add.collider(this.character, colisao);
   }
 
   update() {

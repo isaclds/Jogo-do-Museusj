@@ -14,13 +14,9 @@ export class GameMaterial extends BaseScene {
     );
 
     this.character = this.physics.add.sprite(100, 300, "character");
-
     this.setupPlayerPosition(100, 300);
-
     this.setupMovement(this.character, 160);
 
-    // 66,
-    //   250,
     this.createDoor(
       67,
       60,

@@ -37,31 +37,12 @@ export class GameSalaInicial extends BaseScene {
     const colisao = this.createCollisionObjects(mesas);
     this.physics.add.collider(this.character, colisao);
 
-    this.createDoor(280, 100, 15, 30, "GameOver");
-
-    this.createDoor(280, 195, 15, 30, "GameCorredor");
+    this.createDoor(280, 100, 15, 30, "GameCinema", 58, 113, "DireitaCima");
+    this.createDoor(280, 195, 15, 30, "GameCinema", 58, 210, "DireitaBaixo");
 
     // Portas de baixo
-    this.createDoor(
-      66,
-      250,
-      30,
-      15,
-      "GameMaterial",
-      80,
-      95,
-      "portaBaixoEsquerda"
-    );
-    this.createDoor(
-      226,
-      250,
-      30,
-      15,
-      "GameMaterial",
-      223,
-      95,
-      "portaBaixoDireita"
-    );
+    this.createDoor(66, 250, 30, 15, "GameMaterial", 80, 95, "BaixoEsquerda");
+    this.createDoor(226, 250, 30, 15, "GameMaterial", 223, 95, "BaixoDireita");
 
     // Input para teste
     this.input.once("pointerdown", () => {

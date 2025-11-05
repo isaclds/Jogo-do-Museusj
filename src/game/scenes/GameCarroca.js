@@ -17,7 +17,7 @@ export class GameCarroca extends BaseScene {
     this.setupMovement(this.character, 160);
     this.setupPlayerPosition(161, 184);
 
-    this.createDoor(25, 100, 15, 30, "GameCinema");
+    this.createDoor(25, 100, 15, 30, "GameCinema", 263, 225, "EsquerdaCima");
     this.createDoor(25, 195, 15, 30, "GameChas", 210, 120, "PortaBaixo");
   }
 

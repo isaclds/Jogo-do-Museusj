@@ -24,13 +24,25 @@ export class Preloader extends Scene {
 
   preload() {
     this.load.image("logo", "/assets/logo.jpg");
-    this.load.image("sala_principal", "/assets/TemplateSalaPrincipalJogo.png");
-    this.load.image("sala_indigena", "/assets/TemplateSalaPatIndigenaJogo.png");
-    this.load.image("sala_material", "/assets/TemplateSalaPatMaterialJogo.png");
-    this.load.image("corredor", "/assets/TemplateSalaCorredorJogo.png");
-    this.load.image("sala_carroca", "/assets/TemplateSalaCarrocaJogo.png");
-    this.load.image("sala_chas", "/assets/TemplateSalaChasJogo.png");
-    this.load.image("sala_cinema", "/assets/TemplateSalaCinemaJogo.png");
+    this.load.image(
+      "sala_principal",
+      "/assets/salas/TemplateSalaPrincipalJogo.png"
+    );
+    this.load.image(
+      "sala_indigena",
+      "/assets/salas/TemplateSalaPatIndigenaJogo.png"
+    );
+    this.load.image(
+      "sala_material",
+      "/assets/salas/TemplateSalaPatMaterialJogo.png"
+    );
+    this.load.image("corredor", "/assets/salas/TemplateSalaCorredorJogo.png");
+    this.load.image(
+      "sala_carroca",
+      "/assets/salas/TemplateSalaCarrocaJogo.png"
+    );
+    this.load.image("sala_chas", "/assets/salas/TemplateSalaChasJogo.png");
+    this.load.image("sala_cinema", "/assets/salas/TemplateSalaCinemaJogo.png");
     this.load.spritesheet(
       "character",
       "/assets/personagens/Download43242.png",

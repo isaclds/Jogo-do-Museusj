@@ -1,8 +1,8 @@
 import { BaseScene } from "./BaseScene";
 
-export class MemoryGameScene extends BaseScene {
+export class JogoDaMemoria extends BaseScene {
   constructor() {
-    super("MemoryGameScene");
+    super("JogoDaMemoria");
     this.cards = [];
     this.flippedCards = [];
     this.matchedPairs = 0;
@@ -15,11 +15,11 @@ export class MemoryGameScene extends BaseScene {
       "carroça",
       "canoa",
       "espada",
-      "scroll",
-      "statue",
+      "carranca",
+      "projetor",
     ];
-    artefatos.forEach((artifact) => {
-      this.load.image(artifact, `assets/artefatos/${artifact}.png`);
+    artefatos.forEach((artefato) => {
+      this.load.image(artefato, `assets/artefatos/${artefato}.png`);
     });
   }
 
@@ -39,18 +39,18 @@ export class MemoryGameScene extends BaseScene {
       "sala_principal"
     );
 
-    this.createCards();
-    this.setupUI();
+    this.criarCartas();
+    this.interface();
   }
 
-  createCards() {
+  criarCartas() {
     const artefatos = [
       "vaso",
       "carroça",
       "canoa",
       "espada",
-      "scroll",
-      "statue",
+      "carranca",
+      "projetor",
     ];
     const cardValues = [...artefatos, ...artefatos]; // Duplicar para pares
     Phaser.Utils.Array.Shuffle(cardValues);
@@ -70,7 +70,7 @@ export class MemoryGameScene extends BaseScene {
           .setInteractive();
 
         // Imagem do artefato (inicialmente escondida)
-        const artifactImg = this.add
+        const artefatoImg = this.add
           .sprite(x, y, value)
           .setDisplaySize(this.cardSize - 10, this.cardSize - 10)
           .setVisible(false);
@@ -79,7 +79,7 @@ export class MemoryGameScene extends BaseScene {
           value: value,
           isFlipped: false,
           isMatched: false,
-          frontImage: artifactImg,
+          frontImage: artefatoImg,
         });
 
         card.on("pointerdown", () => this.flipCard(card));
@@ -187,7 +187,7 @@ export class MemoryGameScene extends BaseScene {
     }
   }
 
-  setupUI() {
+  interface() {
     // Contador de pares
     this.pairsText = this.add
       .text(
@@ -223,7 +223,7 @@ export class MemoryGameScene extends BaseScene {
       .setInteractive()
       .on("pointerdown", () => {
         this.scene.stop();
-        this.scene.resume("MuseumScene");
+        this.scene.resume("GameSalaInicial");
       });
   }
 

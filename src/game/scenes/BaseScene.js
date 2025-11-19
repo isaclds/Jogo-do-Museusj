@@ -28,6 +28,12 @@ export class BaseScene extends Scene {
     }
   }
 
+  startMemoryGame() {
+    // Pausa a cena atual e inicia o jogo da memória
+    this.scene.pause();
+    this.scene.launch("JogoDaMemoria");
+  }
+
   createDoor(x, y, width, height, targetScene, spawnX, spawnY, doorId = null) {
     const door = this.physics.add.staticBody(x, y, width, height);
 

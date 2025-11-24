@@ -8,6 +8,8 @@ export class BaseScene extends Scene {
 
     this.character.setCollideWorldBounds(true);
     this.character.setScale(0.5);
+    this.character.body.setSize(40, 50); // Largura, Altura
+    this.character.body.setOffset(12, 14); // Ajuste de posição se necessário
   }
 
   updateMovement() {
@@ -26,12 +28,6 @@ export class BaseScene extends Scene {
     } else if (this.cursors.down.isDown) {
       this.character.setVelocityY(this.characterSpeed);
     }
-  }
-
-  startMemoryGame() {
-    // Pausa a cena atual e inicia o jogo da memória
-    this.scene.pause();
-    this.scene.launch("JogoDaMemoria");
   }
 
   createDoor(x, y, width, height, targetScene, spawnX, spawnY, doorId = null) {
@@ -83,7 +79,41 @@ export class BaseScene extends Scene {
   createInteractiveObject(x, y, width, height, callback) {
     const obj = this.physics.add.staticBody(x, y, width, height);
 
-    this.physics.add.overlap(this.character, obj, callback, null, this);
+    // Variável para controlar se o player está na área interativa
+    let isInInteractiveArea = false;
+
+    // Overlap para detectar quando entra/sai da área
+    this.physics.add.overlap(
+      this.character,
+      obj,
+      () => {
+        isInInteractiveArea = true;
+      },
+      null,
+      this
+    );
+
+    // Detectar quando sai da área
+    this.physics.world.on("worldbounds", (body) => {
+      if (body.gameObject === this.character) {
+        isInInteractiveArea = false;
+      }
+    });
+
+    // Configurar tecla ENTER
+    this.enterKey = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.ENTER
+    );
+
+    // Verificar input no update
+    this.events.on("update", () => {
+      if (
+        isInInteractiveArea &&
+        Phaser.Input.Keyboard.JustDown(this.enterKey)
+      ) {
+        callback();
+      }
+    });
 
     return obj;
   }
@@ -103,5 +133,56 @@ export class BaseScene extends Scene {
     });
 
     return collisionBodies;
+  }
+
+  comecarJogoDaMemoriaInicial() {
+    this.registry.set("previousScene", {
+      key: this.scene.key,
+      x: this.character.x,
+      y: this.character.y,
+    });
+
+    this.scene.start("JogoDaMemoriaInicial");
+  }
+
+  comecarJogoDaMemoriaIndigena() {
+    this.registry.set("previousScene", {
+      key: this.scene.key,
+      x: this.character.x,
+      y: this.character.y,
+    });
+
+    this.scene.start("JogoMemoriaIndigena");
+  }
+
+  comecarJogoDaMemoriaCarroca() {
+    this.registry.set("previousScene", {
+      key: this.scene.key,
+      x: this.character.x,
+      y: this.character.y,
+    });
+
+    this.scene.start("JogoMemoriaCarroca");
+  }
+
+  comecarJogoDaMemoriaCinema() {
+    this.registry.set("previousScene", {
+      key: this.scene.key,
+      x: this.character.x,
+      y: this.character.y,
+    });
+
+    this.scene.start("JogoMemoriaCinema");
+  }
+
+  // Método para voltar do minigame
+  voltarParaCenaAnterior() {
+    const previous = this.registry.get("previousScene");
+    if (previous) {
+      this.scene.start(previous.key);
+    } else {
+      // Fallback
+      this.scene.start("GameInicial");
+    }
   }
 }

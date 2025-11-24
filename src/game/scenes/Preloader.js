@@ -51,6 +51,18 @@ export class Preloader extends Scene {
         frameHeight: 64,
       }
     );
+    // Carregar imagens dos artefatos
+    const artefatos = [
+      // "vaso",
+      // "carroça",
+      "canoa",
+      "espada",
+      // "carranca",
+      "onca",
+    ];
+    artefatos.forEach((artefato) => {
+      this.load.image(artefato, `assets/artefatos/${artefato}.png`);
+    });
   }
 
   create() {

@@ -29,10 +29,13 @@ export class GameIndigena extends BaseScene {
 
     this.createDoor(146, 202, 30, 15, "GameCorredor", 113, 115, "porta");
 
-    // Objetos interativos específicos desta sala
-    // this.artefato1 = this.createInteractiveObject(100, 120, 20, 20, () => {
-    //   console.log("Interagiu com Artefato 1");
-    // });
+    this.createInteractiveObject(
+      150, // x position
+      150, // y position
+      40, // width
+      40, // height
+      () => this.comecarJogoDaMemoriaIndigena()
+    );
   }
 
   update() {

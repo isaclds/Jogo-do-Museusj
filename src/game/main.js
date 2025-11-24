@@ -10,6 +10,10 @@ import { GameCarroca } from "./scenes/GameCarroca.js";
 import { GameChas } from "./scenes/GameChas.js";
 import { GameCinema } from "./scenes/GameCinema.js";
 import { AUTO, Game, Physics } from "phaser";
+import { JogoDaMemoriaInicial } from "./scenes/JogoDaMemoriaInicial.js";
+import { JogoMemoriaIndigena } from "./scenes/JogoMemoriaIndigena.js";
+import { JogoMemoriaCarroca } from "./scenes/JogoMemoriaCarroca.js";
+import { JogoMemoriaCinema } from "./scenes/JogoMemoriaCinema.js";
 
 const config = {
   type: AUTO,
@@ -33,6 +37,10 @@ const config = {
     Preloader,
     MainMenu,
     GameSalaInicial,
+    JogoDaMemoriaInicial,
+    JogoMemoriaIndigena,
+    JogoMemoriaCarroca,
+    JogoMemoriaCinema,
     GameMaterial,
     GameCorredor,
     GameIndigena,

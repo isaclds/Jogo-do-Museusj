@@ -26,6 +26,14 @@ export class GameCarroca extends BaseScene {
       { x: 33, y: 145, width: 15, height: 33 },
     ]);
     this.physics.add.collider(this.character, colisao);
+
+    this.createInteractiveObject(
+      150, // x position
+      150, // y position
+      40, // width
+      40, // height
+      () => this.comecarJogoDaMemoriaCarroca()
+    );
   }
 
   update() {

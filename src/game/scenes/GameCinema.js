@@ -50,6 +50,14 @@ export class GameCinema extends BaseScene {
     ]);
 
     this.physics.add.collider(this.character, colisao);
+
+    this.createInteractiveObject(
+      150, // x position
+      150, // y position
+      40, // width
+      40, // height
+      () => this.comecarJogoDaMemoriaCinema()
+    );
   }
 
   update() {

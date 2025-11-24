@@ -51,6 +51,14 @@ export class GameMaterial extends BaseScene {
       { x: 273, y: 165, width: 15, height: 48 },
     ]);
 
+    this.createInteractiveObject(
+      150, // x position
+      150, // y position
+      40, // width
+      40, // height
+      () => this.comecarJogoDaMemoriaInicial()
+    );
+
     this.physics.add.collider(this.character, colisao);
   }
 

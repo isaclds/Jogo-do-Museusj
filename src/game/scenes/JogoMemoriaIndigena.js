@@ -1,32 +1,16 @@
 import { BaseScene } from "./BaseScene";
 
-export class JogoDaMemoria extends BaseScene {
+export class JogoMemoriaIndigena extends BaseScene {
   constructor() {
-    super("JogoDaMemoria");
+    super("JogoMemoriaIndigena");
     this.cards = [];
     this.flippedCards = [];
     this.matchedPairs = 0;
   }
 
-  preload() {
-    // Carregar imagens dos artefatos
-    const artefatos = [
-      "vaso",
-      "carroça",
-      "canoa",
-      "espada",
-      "carranca",
-      "projetor",
-    ];
-    artefatos.forEach((artefato) => {
-      this.load.image(artefato, `assets/artefatos/${artefato}.png`);
-    });
-  }
-
   create() {
-    // Configuração do jogo
     this.gridSize = 4; // 4x4 grid
-    this.cardSize = 80;
+    this.cardSize = 50;
     this.cards = [];
     this.flippedCards = [];
     this.matchedPairs = 0;
@@ -36,7 +20,7 @@ export class JogoDaMemoria extends BaseScene {
     this.add.image(
       this.cameras.main.centerX,
       this.cameras.main.centerY,
-      "sala_principal"
+      "sala__inddigena"
     );
 
     this.criarCartas();
@@ -45,12 +29,12 @@ export class JogoDaMemoria extends BaseScene {
 
   criarCartas() {
     const artefatos = [
-      "vaso",
-      "carroça",
+      // "vaso",
+      // "carroça",
       "canoa",
       "espada",
-      "carranca",
-      "projetor",
+      // "carranca",
+      "onca",
     ];
     const cardValues = [...artefatos, ...artefatos]; // Duplicar para pares
     Phaser.Utils.Array.Shuffle(cardValues);
@@ -59,8 +43,8 @@ export class JogoDaMemoria extends BaseScene {
 
     for (let row = 0; row < this.gridSize; row++) {
       for (let col = 0; col < this.gridSize; col++) {
-        const x = 100 + col * (this.cardSize + 10);
-        const y = 100 + row * (this.cardSize + 10);
+        const x = 85 + col * this.cardSize;
+        const y = 60 + row * this.cardSize;
         const value = cardValues[cardIndex];
 
         // Fundo da carta
@@ -88,6 +72,19 @@ export class JogoDaMemoria extends BaseScene {
         cardIndex++;
       }
     }
+  }
+
+  interface() {
+    const backButton = this.add
+      .text(200, 240, "Voltar", {
+        fontSize: "14px",
+        backgroundColor: "#333333",
+        padding: { x: 8, y: 2 },
+      })
+      .setInteractive()
+      .on("pointerdown", () => {
+        this.voltarParaCenaAnterior();
+      });
   }
 
   flipCard(card) {
@@ -129,9 +126,6 @@ export class JogoDaMemoria extends BaseScene {
       card2.setFillStyle(0x00ff00);
 
       this.matchedPairs++;
-
-      // Som de sucesso (opcional)
-      // this.sound.play('match-sound');
 
       this.flippedCards = [];
       this.canFlip = true;
@@ -187,50 +181,5 @@ export class JogoDaMemoria extends BaseScene {
     }
   }
 
-  interface() {
-    // Contador de pares
-    this.pairsText = this.add
-      .text(
-        this.cameras.main.centerX,
-        550,
-        `Pares: ${this.matchedPairs}/${this.cards.length / 2}`,
-        {
-          fontSize: "20px",
-          color: "#ffffff",
-        }
-      )
-      .setOrigin(0.5);
-
-    // Botão de reiniciar
-    const restartButton = this.add
-      .text(650, 550, "Reiniciar", {
-        fontSize: "18px",
-        backgroundColor: "#333333",
-        padding: { x: 10, y: 5 },
-      })
-      .setInteractive()
-      .on("pointerdown", () => {
-        this.scene.restart();
-      });
-
-    // Botão de voltar
-    const backButton = this.add
-      .text(750, 550, "Voltar", {
-        fontSize: "18px",
-        backgroundColor: "#333333",
-        padding: { x: 10, y: 5 },
-      })
-      .setInteractive()
-      .on("pointerdown", () => {
-        this.scene.stop();
-        this.scene.resume("GameSalaInicial");
-      });
-  }
-
-  update() {
-    // Atualizar contador
-    this.pairsText.setText(
-      `Pares: ${this.matchedPairs}/${this.cards.length / 2}`
-    );
-  }
+  update() {}
 }

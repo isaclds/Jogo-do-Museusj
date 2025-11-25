@@ -162,6 +162,7 @@ export class JogoMemoriaIndigena extends BaseScene {
   }
 
   createCelebration() {
+    this.registry.set("jogoMemoriaIndigenaConcluido", true);
     // Pequenas partículas para comemoração
     for (let i = 0; i < 20; i++) {
       const particle = this.add.circle(

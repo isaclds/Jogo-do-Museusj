@@ -10,7 +10,8 @@ export class GameCarroca extends BaseScene {
     this.add.image(
       this.cameras.main.centerX,
       this.cameras.main.centerY,
-      "sala_carroca"
+      "sala_carroca" +
+        (this.registry.get("jogoMemoriaCarrocaConcluido") ? "_pos" : "")
     );
 
     this.character = this.physics.add.sprite(161, 184, "character");

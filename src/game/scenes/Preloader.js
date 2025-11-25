@@ -23,6 +23,11 @@ export class Preloader extends Scene {
   }
 
   preload() {
+    this.registry.set("jogoDaMemoriaInicialConcluido", false);
+    this.registry.set("jogoMemoriaCarrocaConcluido", false);
+    this.registry.set("jogoMemoriaCinemaConcluido", false);
+    this.registry.set("jogoMemoriaIndigenaConcluido", false);
+
     this.load.image("logo", "/assets/logo.jpg");
     this.load.image(
       "sala_principal",
@@ -50,6 +55,19 @@ export class Preloader extends Scene {
         frameWidth: 64,
         frameHeight: 64,
       }
+    );
+    //Salas pos
+    this.load.image(
+      "sala_chas_pos",
+      "/assets/salas/TemplateSalaChasJogoPos.png"
+    );
+    this.load.image(
+      "sala_carroca_pos",
+      "/assets/salas/TemplateSalaCarrocaJogoPos.png"
+    );
+    this.load.image(
+      "sala_indigena_pos",
+      "/assets/salas/TemplateSalaPatIndigenaJogoPos.png"
     );
     // Carregar imagens dos artefatos
     const artefatos = [

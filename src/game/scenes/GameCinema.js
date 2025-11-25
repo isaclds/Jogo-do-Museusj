@@ -10,7 +10,8 @@ export class GameCinema extends BaseScene {
     this.add.image(
       this.cameras.main.centerX,
       this.cameras.main.centerY,
-      "sala_cinema"
+      "sala_cinema" +
+        (this.registry.get("jogoMemoriaCinemaConcluido") ? "_pos" : "")
     );
 
     this.character = this.physics.add.sprite(161, 184, "character");

@@ -10,7 +10,8 @@ export class GameChas extends BaseScene {
     this.add.image(
       this.cameras.main.centerX,
       this.cameras.main.centerY,
-      "sala_chas"
+      "sala_chas" +
+        (this.registry.get("jogoMemoriaIndigenaConcluido") ? "_pos" : "")
     );
 
     this.character = this.physics.add.sprite(161, 184, "character");

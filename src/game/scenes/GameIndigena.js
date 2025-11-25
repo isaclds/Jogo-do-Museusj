@@ -7,10 +7,12 @@ export class GameIndigena extends BaseScene {
 
   create() {
     this.physics.world.setBounds(80, 90, 162, 118);
+
     this.add.image(
       this.cameras.main.centerX,
       this.cameras.main.centerY,
-      "sala_indigena"
+      "sala_indigena" +
+        (this.registry.get("jogoMemoriaIndigenaConcluido") ? "_pos" : "")
     );
 
     this.character = this.physics.add.sprite(161, 184, "character");

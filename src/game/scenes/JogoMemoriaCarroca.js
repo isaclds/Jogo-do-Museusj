@@ -162,6 +162,7 @@ export class JogoMemoriaCarroca extends BaseScene {
   }
 
   createCelebration() {
+    this.registry.set("jogoMemoriaCarrocaConcluido", true);
     // Pequenas partículas para comemoração
     for (let i = 0; i < 20; i++) {
       const particle = this.add.circle(

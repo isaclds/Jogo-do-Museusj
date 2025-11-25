@@ -162,6 +162,7 @@ export class JogoMemoriaCinema extends BaseScene {
   }
 
   createCelebration() {
+    this.registry.set("jogoMemoriaCinemaConcluido", true);
     // Pequenas partículas para comemoração
     for (let i = 0; i < 20; i++) {
       const particle = this.add.circle(

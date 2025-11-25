@@ -1,6 +1,7 @@
 import { Scene } from "phaser";
 
 export class BaseScene extends Scene {
+
   setupMovement(character, speed = 160) {
     this.character = character;
     this.characterSpeed = speed;

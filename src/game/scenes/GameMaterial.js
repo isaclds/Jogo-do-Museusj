@@ -10,7 +10,8 @@ export class GameMaterial extends BaseScene {
     this.add.image(
       this.cameras.main.centerX,
       this.cameras.main.centerY,
-      "sala_material"
+      "sala_material" +
+        (this.registry.get("jogoDaMemoriaInicialConcluido") ? "_pos" : "")
     );
 
     this.character = this.physics.add.sprite(100, 300, "character");

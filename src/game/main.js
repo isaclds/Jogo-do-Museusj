@@ -14,6 +14,8 @@ import { JogoDaMemoriaInicial } from "./scenes/JogoDaMemoriaInicial.js";
 import { JogoMemoriaIndigena } from "./scenes/JogoMemoriaIndigena.js";
 import { JogoMemoriaCarroca } from "./scenes/JogoMemoriaCarroca.js";
 import { JogoMemoriaCinema } from "./scenes/JogoMemoriaCinema.js";
+import { Historia } from "./scenes/Historia.js";
+import { Controles } from "./scenes/Controles.js";
 
 const config = {
   type: AUTO,
@@ -36,6 +38,8 @@ const config = {
     Boot,
     Preloader,
     MainMenu,
+    Historia,
+    Controles,
     GameSalaInicial,
     JogoDaMemoriaInicial,
     JogoMemoriaIndigena,

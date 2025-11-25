@@ -28,7 +28,12 @@ export class Preloader extends Scene {
     this.registry.set("jogoMemoriaCinemaConcluido", false);
     this.registry.set("jogoMemoriaIndigenaConcluido", false);
 
+    //Inicio
     this.load.image("logo", "/assets/logo.jpg");
+    this.load.image("controles_imagem", "/assets/controles.png");
+    this.load.image("historia_imagem", "/assets/historia.png");
+
+    //Salas
     this.load.image(
       "sala_principal",
       "/assets/salas/TemplateSalaPrincipalJogo.png"

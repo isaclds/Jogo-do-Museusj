@@ -43,7 +43,6 @@ export class GameSalaInicial extends BaseScene {
     this.createDoor(66, 250, 30, 15, "GameMaterial", 80, 95, "BaixoEsquerda");
     this.createDoor(226, 250, 30, 15, "GameMaterial", 223, 95, "BaixoDireita");
 
-    // Input para teste
     this.input.once("pointerdown", () => {
       this.scene.start("GameOver");
     });

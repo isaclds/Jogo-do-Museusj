@@ -33,7 +33,7 @@ export class GameIndigena extends BaseScene {
 
     this.createInteractiveObject(
       150, // x position
-      150, // y position
+      80, // y position
       40, // width
       40, // height
       () => this.comecarJogoDaMemoriaIndigena()

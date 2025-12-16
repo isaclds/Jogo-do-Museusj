@@ -29,12 +29,14 @@ export class JogoDaMemoriaInicial extends BaseScene {
 
   criarCartas() {
     const artefatos = [
-      // "vaso",
-      // "carroça",
-      "canoa",
-      "espada",
-      // "carranca",
-      "onca",
+      "Boidemamao",
+      "Bull",
+      "Canoa",
+      "EsculturaIgrejaMatriz",
+      "Jarro",
+      "ObrasArgila",
+      "TernoDivino",
+      "VestidoDivino",
     ];
     const cardValues = [...artefatos, ...artefatos]; // Duplicar para pares
     Phaser.Utils.Array.Shuffle(cardValues);

@@ -74,17 +74,62 @@ export class Preloader extends Scene {
       "sala_indigena_pos",
       "/assets/salas/TemplateSalaPatIndigenaJogoPos.png"
     );
-    // Carregar imagens dos artefatos
-    const artefatos = [
-      // "vaso",
-      // "carroça",
-      "canoa",
-      "espada",
-      // "carranca",
-      "onca",
+    // Carregar imagens dos artefatos Sala indigena
+    const artefatosInd = [
+      "oncaCranio",
+      "cocar",
+      "louca",
+      "maraca",
+      "prato",
+      "xicara",
+      "jarro",
+      "carranca",
     ];
-    artefatos.forEach((artefato) => {
-      this.load.image(artefato, `assets/artefatos/${artefato}.png`);
+    const artefatoPatMat = [
+      "Boidemamao",
+      "Bull",
+      "Canoa",
+      "EsculturaIgrejaMatriz",
+      "Jarro",
+      "ObrasArgila",
+      "TernoDivino",
+      "VestidoDivino",
+    ];
+    const artefatoCinema = [
+      "CadeiraBarbeiro",
+      "Cafeteira",
+      "FerroPassar",
+      "Lampiao",
+      "MaquinaCostura",
+      "MaquinaEscrever",
+      "Pilao",
+      "Projetor",
+    ];
+    const artefatoCarroca = [
+      "CapMilitar",
+      "carroça",
+      "Espada DOMPEDRO",
+      "Espada",
+      "Medalha",
+      "pistola",
+      "Rifle",
+      "Tronco",
+    ];
+
+    artefatosInd.forEach((artefato) => {
+      this.load.image(artefato, `assets/artefatos/indigena/${artefato}.png`);
+    });
+    artefatoPatMat.forEach((artefato) => {
+      this.load.image(
+        artefato,
+        `assets/artefatos/patrimonioMaterial/${artefato}.png`
+      );
+    });
+    artefatoCinema.forEach((artefato) => {
+      this.load.image(artefato, `assets/artefatos/cinema/${artefato}.png`);
+    });
+    artefatoCarroca.forEach((artefato) => {
+      this.load.image(artefato, `assets/artefatos/carroca/${artefato}.png`);
     });
   }
 

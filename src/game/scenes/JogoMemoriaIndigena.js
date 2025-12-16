@@ -29,12 +29,14 @@ export class JogoMemoriaIndigena extends BaseScene {
 
   criarCartas() {
     const artefatos = [
-      // "vaso",
-      // "carroça",
-      "canoa",
-      "espada",
-      // "carranca",
-      "onca",
+      "oncaCranio",
+      "cocar",
+      "louca",
+      "maraca",
+      "prato",
+      "xicara",
+      "jarro",
+      "carranca",
     ];
     const cardValues = [...artefatos, ...artefatos]; // Duplicar para pares
     Phaser.Utils.Array.Shuffle(cardValues);

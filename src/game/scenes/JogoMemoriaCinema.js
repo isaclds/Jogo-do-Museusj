@@ -29,12 +29,14 @@ export class JogoMemoriaCinema extends BaseScene {
 
   criarCartas() {
     const artefatos = [
-      // "vaso",
-      // "carroça",
-      "canoa",
-      "espada",
-      // "carranca",
-      "onca",
+      "CadeiraBarbeiro",
+      "Cafeteira",
+      "FerroPassar",
+      "Lampiao",
+      "MaquinaCostura",
+      "MaquinaEscrever",
+      "Pilao",
+      "Projetor",
     ];
     const cardValues = [...artefatos, ...artefatos]; // Duplicar para pares
     Phaser.Utils.Array.Shuffle(cardValues);

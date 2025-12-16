@@ -29,12 +29,14 @@ export class JogoMemoriaCarroca extends BaseScene {
 
   criarCartas() {
     const artefatos = [
-      // "vaso",
-      // "carroça",
-      "canoa",
-      "espada",
-      // "carranca",
-      "onca",
+      "CapMilitar",
+      "carroça",
+      "Espada DOMPEDRO",
+      "Espada",
+      "Medalha",
+      "pistola",
+      "Rifle",
+      "Tronco",
     ];
     const cardValues = [...artefatos, ...artefatos]; // Duplicar para pares
     Phaser.Utils.Array.Shuffle(cardValues);

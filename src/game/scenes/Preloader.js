@@ -63,6 +63,14 @@ export class Preloader extends Scene {
     );
     //Salas pos
     this.load.image(
+      "sala_material_pos",
+      "/assets/salas/TemplateSalaPatMaterialJogoPos.png"
+    );
+    this.load.image(
+      "sala_cinema_pos",
+      "/assets/salas/TemplateSalaCinemaJogoPos.png"
+    );
+    this.load.image(
       "sala_chas_pos",
       "/assets/salas/TemplateSalaChasJogoPos.png"
     );
